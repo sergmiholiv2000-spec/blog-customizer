@@ -3,8 +3,8 @@ import { Article } from 'src/components/article';
 import { ArticleParamsForm } from 'src/components/article-params-form';
 import { defaultArticleState } from 'src/constants/articleProps';
 
-import type { ArticleStateType } from 'src/constants/articleProps';
 import type { CSSProperties } from 'react';
+import type { ArticleStateType } from 'src/constants/articleProps';
 
 import styles from './app.module.scss';
 
