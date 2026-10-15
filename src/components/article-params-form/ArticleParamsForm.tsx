@@ -48,15 +48,12 @@ export const ArticleParamsForm = ({
   };
 
   return (
-    <>
+    <div ref={rootRef}>
       <ArrowButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
-      <aside
-        ref={rootRef}
-        className={clsx(styles.container, { [styles.container_open]: isOpen })}
-      >
+      <aside className={clsx(styles.container, { [styles.container_open]: isOpen })}>
         <form className={styles.form} onSubmit={handleSubmit} onReset={handleReset}>
           <Text as="h2" size={31} weight={800} uppercase>
-            Параметры статьи
+            Задайте параметры
           </Text>
           <Select
             title="Шрифт"
@@ -67,38 +64,35 @@ export const ArticleParamsForm = ({
             }
           />
           <RadioGroup
+            title="Размер шрифта"
+            name="fontSize"
+            options={fontSizeOptions}
+            selected={formState.fontSizeOption}
+            onChange={(selected) =>
+              setFormState({ ...formState, fontSizeOption: selected })
+            }
+          />
+          <Select
             title="Цвет шрифта"
-            name="fontColor"
-            options={fontColors}
             selected={formState.fontColor}
+            options={fontColors}
             onChange={(selected) => setFormState({ ...formState, fontColor: selected })}
           />
           <Separator />
-          <RadioGroup
+          <Select
             title="Цвет фона"
-            name="backgroundColor"
-            options={backgroundColors}
             selected={formState.backgroundColor}
+            options={backgroundColors}
             onChange={(selected) =>
               setFormState({ ...formState, backgroundColor: selected })
             }
           />
-          <RadioGroup
+          <Select
             title="Ширина контента"
-            name="contentWidth"
-            options={contentWidthArr}
             selected={formState.contentWidth}
+            options={contentWidthArr}
             onChange={(selected) =>
               setFormState({ ...formState, contentWidth: selected })
-            }
-          />
-          <Separator />
-          <Select
-            title="Размер шрифта"
-            selected={formState.fontSizeOption}
-            options={fontSizeOptions}
-            onChange={(selected) =>
-              setFormState({ ...formState, fontSizeOption: selected })
             }
           />
           <div className={styles.bottomContainer}>
@@ -107,6 +101,6 @@ export const ArticleParamsForm = ({
           </div>
         </form>
       </aside>
-    </>
+    </div>
   );
 };

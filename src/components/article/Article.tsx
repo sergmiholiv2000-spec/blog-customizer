@@ -8,7 +8,7 @@ import styles from './Article.module.scss';
 export const Article = (): React.JSX.Element => {
   return (
     <article className={clsx(styles.article)}>
-      <Text as="h1" size={45} weight={800} uppercase dynamicLite>
+      <Text as="h1" size={45} weight={800} uppercase align="center" dynamicLite>
         Портрет Западной Швейцарии
       </Text>
       <div className={styles.titleDescription}>
@@ -39,8 +39,8 @@ export const Article = (): React.JSX.Element => {
         С мая 2017 года &quot;Бомбардье&quot; носит имя &quot;Швейцарская Романдия&quot;
         и регистрационный номер HB-JCA ; совершает в среднем 4 коммерческих полёта в
         сутки. Его можно видеть в &quot;Домодедово&quot;, а также в аэропортах Парижа,
-        Валенсии, Кракова, Берлина, Вены, Загреба, на на Майорке, Крите и Сицилии.
-        Самолёт останется в той же ливрее, пока его купит другая авиакомпания.
+        Валенсии, Кракова, Берлина, Вены, Загреба, на Майорке, Крите и Сицилии. Самолёт
+        останется в той же ливрее, пока его не купит другая авиакомпания.
       </Text>
     </article>
   );
