@@ -1,5 +1,3 @@
-import { fileURLToPath, URL } from 'node:url';
-
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import { checker } from 'vite-plugin-checker';
@@ -19,16 +17,8 @@ export default defineConfig({
       enabledMode: ['development'],
       esmExport: true,
     }),
-    tsconfigPaths({
-      projects: ['tsconfig.app.json'],
-    }),
+    tsconfigPaths(),
   ],
-  resolve: {
-    alias: {
-      '@components': fileURLToPath(new URL('./src/components', import.meta.url)),
-      src: fileURLToPath(new URL('./src', import.meta.url)),
-    },
-  },
   base: '',
   css: {
     preprocessorOptions: {
