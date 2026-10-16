@@ -29,6 +29,7 @@ export const ArticleParamsForm = ({
 }: ArticleParamsFormProps): React.JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [formState, setFormState] = useState<ArticleStateType>(defaultArticleState);
+  const [radioGroupKey, setRadioGroupKey] = useState<number>(0);
   const rootRef = useRef<HTMLDivElement>(null);
 
   useOutsideClickClose({
@@ -49,6 +50,7 @@ export const ArticleParamsForm = ({
   const handleReset = (): void => {
     setFormState(defaultArticleState);
     onApply(defaultArticleState);
+    setRadioGroupKey((prevKey) => prevKey + 1);
   };
 
   return (
@@ -68,6 +70,7 @@ export const ArticleParamsForm = ({
             }
           />
           <RadioGroup
+            key={radioGroupKey}
             title="Размер шрифта"
             name="fontSize"
             options={fontSizeOptions}
